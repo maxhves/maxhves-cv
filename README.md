@@ -1,8 +1,8 @@
 ## Maxhves resume
 
-This CV/resume template is written using [Typst](https://typst.app) and this repository serves as an iterative store of my personal resume and as a template for others whom might like to recreate a document similar to mine.
+This CV/resume template is created using [Typst](https://typst.app), and this repository serves both as an evolving record of my personal resume and as a template for anyone who wants to create a similar document.
 
-Being new to Typst myself, I cannot promise that this template serves as a pinacle representation of how/what to do, but I am satisfied with the output and over time I will improve the codebase and look of the resume in general.
+As a newcomer to Typst, I cannot guarantee that this template is a perfect example of best practices, but I am pleased with the current result. Over time, I will continue to refine the codebase and enhance the overall appearance of the resume.
 
 ## Preview
 
