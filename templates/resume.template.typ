@@ -1,3 +1,61 @@
+//region Constants
+
+// Language
+#let resume-language = "en"
+
+// Font families
+#let family-primary = "Roboto Serif"
+#let family-seconday = "Playfair Display"
+
+// Colors
+#let stone-950 = rgb("#0c0a09")
+#let stone-800 = rgb("#292524")
+#let stone-700 = rgb("#44403c")
+#let stone-600 = rgb("#57534e")
+#let stone-500 = rgb("#78716c")
+#let stone-300 = rgb("#d6d3d1")
+
+// Text size
+#let text-large = 18pt
+#let text-big = 12pt
+#let text-base = 10pt
+#let text-small = 8pt
+
+// Font weight
+#let font-semibold = 600
+#let font-medium = 500
+#let font-normal = 400
+
+//endregion
+
+//region Text
+
+#let authortext(body) = {
+  text(weight: font-medium, size: text-large, font: family-seconday, [#smallcaps(body)])
+}
+
+#let smalltext(body) = {
+  text(fill: stone-700, text-small, [#body])
+}
+
+#let sectionheading(body) = {
+  text(fill: stone-950, size: text-big, font: family-seconday, weight: font-semibold, [#body])
+}
+
+#let itemheading(body) = {
+  text(fill: stone-800, size: text-base, weight: font-medium, [#body])
+}
+
+#let itemsubheading(body) = {
+  text(fill: stone-500, size: text-small, [#body])
+}
+
+#let descriptiontext(body) = {
+  text(fill: stone-600, size: text-base, [#body])
+}
+
+//endregion
+
 //region Resume
 
 #let resume(
@@ -15,11 +73,11 @@
 
   // Document settings
   set text(
-    font: "Roboto Serif",
-    size: 10pt,
-    weight: 400,
-    fill: rgb("#0C0A09"),
-    lang: "en"
+    font: family-primary,
+    size: text-base,
+    weight: font-normal,
+    fill: stone-950,
+    lang: resume-language
   )
 
   // Page setup
@@ -34,8 +92,16 @@
   
   // Section heading
   show heading: it => [
-    #pad(top: 0pt, bottom: -8pt, text(weight: 500, size: 11pt, font: "Lora", [#it.body]))
-    #line(start: (-8pt, 0pt), end: (540pt, 0pt), stroke: 1pt + rgb("#D6D3D1"))
+    #pad(
+      top: 0pt, 
+      bottom: -8pt, 
+      sectionheading([#it.body])
+    )
+    #line(
+      start: (-8pt, 0pt), 
+      end: (540pt, 0pt), 
+      stroke: 1pt + stone-300
+    )
   ]
 
   // Personal details
@@ -46,29 +112,24 @@
     align(left)[
       #stack(
         spacing: 8pt,
-        text(fill: rgb("#44403C"), size: 8pt, [#email]),
-        text(fill: rgb("#44403C"), size: 8pt, [#phoneNumber])
+        smalltext([#email]),
+        smalltext([#phoneNumber])
       )
     ],
     // Name and website
     align(center)[
       #stack(
         spacing: 8pt,
-        text(
-          weight: 500, 
-          size: 18pt,
-          font: "Lora",
-          [#smallcaps(author)]
-        ),
-        text(fill: rgb("#44403C"), size: 8pt, [#website])
+        authortext([#author]),
+        itemsubheading([#website])
       )
     ],
     // Github and linkedin
     align(right)[
       #stack(
         spacing: 8pt,
-        text(fill: rgb("#44403C"), size: 8pt, [Github: #strong(delta: 100, [#github])]),
-        text(fill: rgb("#44403C"), size: 8pt, [Linkedin: #strong(delta: 100, [#linkedin])])
+        smalltext([Github: #strong(delta: 100, [#github])]),
+        smalltext([Linkedin: #strong(delta: 100, [#linkedin])])
       )
     ]
   )
@@ -103,24 +164,24 @@
         columns: (1fr, 1fr, 1fr),
         align: center,
         align(left)[
-          #text(fill: rgb("#292524"), weight: 500, [#title])
+          #itemheading([#title])
         ],
         align(center)[
           #stack(
             spacing: 8pt,
-            text(fill: rgb("#292524"), weight: 500, [#companyName]),
-            text(fill: rgb("#44403C"), size: 8pt, [#location])
+            itemheading([#companyName]),
+            itemsubheading([#location])
           )
         ],
         align(right)[
-          #text(fill: rgb("#292524"), weight: 500, [#startDate - #endDate])
+          #itemheading([#startDate - #endDate])
         ]
       ),
       pad(
         left: 4pt, 
         par(
           leading: 8pt, 
-          text(fill: rgb("#57534E"), [#description])
+          descriptiontext([#description])
         )
       )
     )
@@ -147,20 +208,20 @@
         columns: (1fr, 1fr, 1fr),
         align: center,
         align(left)[
-          #text(fill: rgb("#292524"), weight: 500, [#location])
+          #itemheading([#location])
         ],
         align(center)[
-          #text(fill: rgb("#292524"), weight: 500, [#institution])
+          #itemheading([#institution])
         ],
         align(right)[
-          #text(fill: rgb("#292524"), weight: 500, [#startDate - #endDate])
+          #itemheading([#startDate - #endDate])
         ]
       ),
       pad(
         left: 4pt,
         par(
           leading: 8pt,
-          text(fill: rgb("#57534E"), [#degree])
+          descriptiontext([#degree])
         )
       )
     )
@@ -181,14 +242,14 @@
     bottom: 4pt,
     stack(
       spacing: 8pt,
-      text(fill: rgb("#292524"), weight: 500, [#name]),
-      text(fill: rgb("#78716C"), size: 8pt, [#emph(url)]),
+      itemheading([#name]),
+      itemsubheading([#emph(url)]),
       pad(
         top: 4pt,
         left: 4pt,
         par(
           leading: 8pt,
-          text(fill: rgb("#57534E"), [#description])
+          descriptiontext([#description])
         )
       )
     )
@@ -208,12 +269,12 @@
     bottom: 4pt,
     stack(
       spacing: 16pt,
-      text(fill: rgb("#292524"), weight: 500, [#domain]),
+      itemheading([#domain]),
       pad(
         left: 4pt,
         par(
           leading: 8pt,
-          text(fill: rgb("#57534E"), [#skills])
+          descriptiontext([#skills])
         )
       )
     )
