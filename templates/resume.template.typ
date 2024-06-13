@@ -51,7 +51,7 @@
 }
 
 #let descriptiontext(body) = {
-  text(fill: stone-600, size: text-base, [#body])
+  text(fill: stone-600, size: text-base, hyphenate: false, [#body])
 }
 
 //endregion
