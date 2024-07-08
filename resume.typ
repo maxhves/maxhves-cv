@@ -4,7 +4,7 @@
 
 #show: resume.with(
   email: "max@hvesserlewis.com",
-  phoneNumber: "+66 6-1598-7642",
+  phoneNumber: "+47 901 11 845",
   author: "Maximilian Hvesser-Lewis",
   website: "hvesserlewis.com",
   github: "maxhves",
