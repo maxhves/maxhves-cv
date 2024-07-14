@@ -18,10 +18,23 @@
 = Employment
 
 #employment(
+  title: "Full Stack Developer",
+  companyName: "Hval",
+  startDate: "Jan 2024",
+  endDate: "Present",
+  location: "Bangkok, Thailand",
+  description: [
+    At Hval, I have taken the opportunity to work on projects that I am personally passionate about, gaining firsthand experience in independently managing and developing various projects from inception to production.
+
+    I have primarily developed web applications, enhancing my technical knowledge of front-end, back-end, and database technologies. My experience has been particularly focused on working with ReactJS, NextJS, PostgreSQL, JavaScript, and TypeScript.
+  ],
+)
+
+#employment(
   title: "Senior Software Engineer",
   companyName: "Vipps MobilePay",
   startDate: "Jun 2021",
-  endDate: "Present",
+  endDate: "Dec 2023",
   location: "Oslo, Norway - Vancouver, Canada",
   description: [
     - Led a financial service project, developing a credit product for Android users and managing the entire tech stack.
