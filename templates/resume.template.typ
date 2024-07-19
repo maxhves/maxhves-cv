@@ -112,8 +112,12 @@
     align(left)[
       #stack(
         spacing: 8pt,
-        smalltext([#email]),
-        smalltext([#phoneNumber])
+        smalltext(
+          [#link("mailto:" + email)[#email]]
+        ),
+        smalltext(
+          [#link("tel:" + phoneNumber)[#phoneNumber]]
+        )
       )
     ],
     // Name and website
@@ -121,15 +125,27 @@
       #stack(
         spacing: 8pt,
         authortext([#author]),
-        itemsubheading([#website])
+        itemsubheading(
+          [#link("https://" + website)[#website]]
+        )
       )
     ],
     // Github and linkedin
     align(right)[
       #stack(
         spacing: 8pt,
-        smalltext([Github: #strong(delta: 100, [#github])]),
-        smalltext([Linkedin: #strong(delta: 100, [#linkedin])])
+        smalltext(
+          [Github: #strong(
+            delta: 100, 
+            [#link("https://www.github.com/" + github)[#github]]
+          )]
+        ),
+        smalltext(
+          [Linkedin: #strong(
+            delta: 100, 
+            [#link("https://www.linkedin.com/in/" + linkedin)[#linkedin]]
+          )]
+        )
       )
     ]
   )
