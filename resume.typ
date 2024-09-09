@@ -18,15 +18,13 @@
 = Employment
 
 #employment(
-  title: "Full Stack Developer",
+  title: "Owner & Full Stack Developer",
   companyName: "Hval",
   startDate: "Jan 2024",
   endDate: "Present",
   location: "Bangkok, Thailand",
   description: [
-    At Hval, I have taken the opportunity to work on projects that I am personally passionate about, gaining firsthand experience in independently managing and developing various projects from inception to production.
-
-    I have primarily developed web applications, enhancing my technical knowledge of front-end, back-end, and database technologies. My experience has been particularly focused on working with ReactJS, NextJS, PostgreSQL, JavaScript, and TypeScript.
+    Hval is a Web Development Agency I started to offer my technical expertise to clients through development services. As a full stack developer, I handle every aspect of project development—from database design and API integration to backend and frontend development, ensuring a seamless user experience. In addition to development, I’m responsible for attracting and securing new clients by creating proposals and sales documentation.
   ],
 )
 
@@ -35,7 +33,7 @@
   companyName: "Vipps MobilePay",
   startDate: "Jun 2021",
   endDate: "Dec 2023",
-  location: "Oslo, Norway - Vancouver, Canada",
+  location: "Oslo, Norway & Vancouver, Canada",
   description: [
     - Led a financial service project, developing a credit product for Android users and managing the entire tech stack.
     - Transitioned the core payment flow UI from XML to Jetpack Compose, modernizing and boosting performance.

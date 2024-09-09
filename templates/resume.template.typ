@@ -190,7 +190,7 @@
           )
         ],
         align(right)[
-          #itemheading([#startDate - #endDate])
+          #itemheading([#startDate\-#endDate])
         ]
       ),
       pad(
@@ -230,7 +230,7 @@
           #itemheading([#institution])
         ],
         align(right)[
-          #itemheading([#startDate - #endDate])
+          #itemheading([#startDate\-#endDate])
         ]
       ),
       pad(
