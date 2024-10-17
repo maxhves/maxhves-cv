@@ -6,7 +6,7 @@
   email: "max@hvesserlewis.com",
   phoneNumber: "+47 901 11 845",
   author: "Maximilian Hvesser-Lewis",
-  website: "hvesserlewis.com",
+  website: "www.hvesserlewis.com",
   github: "maxhves",
   linkedin: "maxhves"
 )
@@ -18,13 +18,15 @@
 = Employment
 
 #employment(
-  title: "Owner & Full Stack Developer",
-  companyName: "Hval",
+  title: "Full Stack Developer",
+  companyName: "Hvesser-Lewis Consulting",
   startDate: "Jan 2024",
   endDate: "Present",
   location: "Bangkok, Thailand",
   description: [
-    Hval is a Web Development Agency I started to offer my technical expertise to clients through development services. As a full stack developer, I handle every aspect of project development—from database design and API integration to backend and frontend development, ensuring a seamless user experience. In addition to development, I’m responsible for attracting and securing new clients by creating proposals and sales documentation.
+    In this role, I provide technical expertise to clients on a freelance and consulting basis, working on a variety of full-stack and mobile applications. I develop end-to-end solutions tailored to the unique needs of diverse clients and businesses.
+
+    In addition to technical development, I manage all projects from start to finish, ensuring that deadlines are met while delivering high-quality work. I consistently provide accurate updates throughout each project’s lifecycle, maintaining clear communication and accountability.
   ],
 )
 
