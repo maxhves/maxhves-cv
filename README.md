@@ -1,4 +1,4 @@
-## Maxhves resume
+## Maximilian Hvesser-Lewis Resume
 
 This CV/resume template is created using [Typst](https://typst.app), and this repository serves both as an evolving record of my personal resume and as a template for anyone who wants to create a similar document.
 
