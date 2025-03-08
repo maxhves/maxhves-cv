@@ -1,112 +1,91 @@
 #import "templates/resume.template.typ": *
 
-//region Personal details
-
 #show: resume.with(
-  email: "max@hvesserlewis.com",
-  phoneNumber: "+47 901 11 845",
-  author: "Maximilian Hvesser-Lewis",
-  website: "www.hvesserlewis.com",
-  github: "maxhves",
-  linkedin: "maxhves"
+  name: "Maximilian Hvesser-Lewis",
+  emailAddress: "max@hvesserlewis.com",
+  website: "hvesserlewis.com",
+  linkedIn: "linkedin.com/in/maxhves",
+  github: "github.com/maxhves"
+)
+
+//region Skills
+
+= Skills
+
+#stack(
+  spacing: 10pt,
+  skill(
+    label: "Languages", 
+    detail: "English (native), Norwegian (B2, professional)"
+  ),
+  skill(
+    label: "Programming", 
+    detail: "Kotlin, Java, Swift, JavaScript, TypeScript, Python, Data Structures and Algorithms."
+  ),
+  skill(
+    label: "Tools",
+    detail: "React, Next.js, Compose, Coroutines, MAD, SQL, Postgres, Supabase, PyTorch, TensorFlow, Figma, Git."
+  )
 )
 
 //endregion
 
-//region Employment
+//region Experience
 
-= Employment
+= Experience
 
-#employment(
-  title: "Full Stack Developer",
-  companyName: "Hvesser-Lewis Consulting",
-  startDate: "Jan 2024",
-  endDate: "Present",
-  location: "Bangkok, Thailand",
-  description: [
-    In this role, I provide technical expertise to clients on a freelance and consulting basis, working on a variety of full-stack and mobile applications. I develop end-to-end solutions tailored to the unique needs of diverse clients and businesses.
-
-    In addition to technical development, I manage all projects from start to finish, ensuring that deadlines are met while delivering high-quality work. I consistently provide accurate updates throughout each project’s lifecycle, maintaining clear communication and accountability.
-  ],
-)
-
-#employment(
-  title: "Senior Software Engineer",
-  companyName: "Vipps MobilePay",
-  startDate: "Jun 2021",
-  endDate: "Dec 2023",
-  location: "Oslo, Norway & Vancouver, Canada",
-  description: [
-    - Led a financial service project, developing a credit product for Android users and managing the entire tech stack.
-    - Transitioned the core payment flow UI from XML to Jetpack Compose, modernizing and boosting performance.
-    - Improved the payments flow architecture by creating standardized helper classes.
-    - Maintained a rigorous release schedule, handling the end-to-end release process, monitoring crash reports, and addressing issues.
-  ]
-)
-
-#employment(
-  title: "Senior Android Developer",
-  companyName: "FINN.no",
-  startDate: "Jun 2019",
-  endDate: "May 2021",
-  location: "Oslo, Norway",
-  description: [
-    - Developed an open-source image gallery library, integrated into the production app and available on my Github.
-    - Led a project to add a notification system to the app. Created a new feature module for networking, push notifications, local persistence, business logic, and UI.
-    - Designed and implemented key app components, modernizing the app's appearance and increasing user engagement and ratings.
-  ]
-)
-
-#employment(
-  title: "Lead Android Developer",
-  companyName: "DTT",
-  startDate: "Aug 2017",
-  endDate: "May 2019",
-  location: "Amsterdam, the Netherlands",
-  description: [
-    - Guided and mentored a team of developers, overseeing the development of high-quality, cost-effective Android applications from inception to delivery. 
-    - Architected Android applications for clients.
-    - Created precise project quotes and reports based on app requirements and design, meeting project duration and cost demands.
-  ]
-)
-
-#employment(
-  title: "Software Engineer",
-  companyName: "DTT",
-  startDate: "Aug 2016",
-  endDate: "Jul 2017",
-  location: "Amsterdam, the Netherlands",
-  description: [
-    - Developed native Android apps for various clients as a consultant. 
-    - Developed new features for existing applications and conducted assessments of code quality in established codebases.
-    - Showcased my expertise in Android development with the use of networking, database storage and persistence, push notifications, interface design, background services, concurrency management, and connectivity.
-  ]
-)
-
-//endregion
-
-//region Education
-
-= Education
-
-#education(
-  location: "Plymouth, England",
-  institution: "University of Plymouth",
-  startDate: "Sep 2014",
-  endDate: "May 2017",
-  degree: [
-    - BSc (Hons) Computer Science
-  ]
-)
-
-#education(
-  location: "Stoke-on-Trent, England",
-  institution: "Staffordshire University",
-  startDate: "Sep 2011",
-  endDate: "May 2014",
-  degree: [
-    - BSc (Hons) Psychology
-  ]
+#stack(
+  spacing: 16pt,
+  experience(
+    role: "Full Stack Engineer",
+    company: "Hvesser-Lewis Consulting",
+    location: "Oslo, Norway",
+    startDate: "Jan 2024",
+    endDate: "Present",
+    accomplishments: (
+      "Developed 6 full-stack web applications within 1 year, specifically solving personally meaningful problems.", 
+      "Managed the entire end-to-end lifecycle, including UI/UX, frontend, backend infrastructure, and cloud hosting.", 
+      "Achieved an average of 100 MAU across all products, demonstrating consistent user engagement and viability.",
+      "Drove product success through strategic marketing and optimization, iterating based on application analytics."
+    )
+  ),
+  experience(
+    role: "Senior Android Engineer",
+    company: "Vipps MobilePay",
+    location: "Oslo, Norway",
+    startDate: "Jun 2021",
+    endDate: "Dec 2023",
+    accomplishments: (
+      "Led the Android development of a new credit service, collaborating closely with product and development teams.", 
+      "Refactored the core payment flow UI from XML to Compose, leading to a 10% decrease in user fall-off rates.", 
+      "Developed standardized payment handler classes which increased developer efficiency in integrating payments.",
+    )
+  ),
+  experience(
+    role: "Senior Android Engineer",
+    company: "FINN.no",
+    location: "Oslo, Norway",
+    startDate: "Jun 2019",
+    endDate: "May 2021",
+    accomplishments: (
+      "Developed an open-source image gallery library, driving a 2% increase in user engagement in the product page.", 
+      "Led the Android development of an in-app notification system, boosting effective user reach by 20%.", 
+      "Created a standardized set of dialog classes making in-app campaign launches more effective and efficient.",
+      "Modernized core UI components like the Navigation and Bottom Tab bars, improving maintainability for the future."
+    )
+  ),
+  experience(
+    role: "Lead Android Engineer",
+    company: "DTT",
+    location: "Amsterdam, the Netherlands",
+    startDate: "Aug 2017",
+    endDate: "May 2019",
+    accomplishments: (
+      "Managed and mentored a team of 8 Android developers, responsible for project resource planning and hiring.", 
+      "Led coding quality initiatives, setting guidelines and standards that improved project setup efficiency by 50%.", 
+      "Created proposals for new and existing clients, accurately estimating the man-hour cost for prospective projects."
+    )
+  ),
 )
 
 //endregion
@@ -115,77 +94,46 @@
 
 = Projects
 
-#project(
-  name: "Temperature check",
-  url: [
-    https://www.temperature-check.com
-  ],
-  description: [
-    - Created a full stack web application using NextJS with Typescript.
-    - Utilized TailwindCSS and TailwindUI to create an intuitive user interface.
-    - Developed a platform to interpret temperature readings across multiple conditional variables.
-  ]
+#stack(
+  spacing: 16pt,
+  project(
+    name: "Find the Menu",
+    projectLink: "findthe.menu",
+    features: (
+      "Developed a platform enabling restaurants to create a single-page mini-website, to easily showcase their menus.",
+      "Built as a full-stack web application using Next.js, TypeScript, TailwindCSS, Kotlin, Ktor, Supabase and AWS.",
+      "Deployed effective SEO and pSEO strategies leading to an increase in site exposure and a steady rise in DAUs."
+    )
+  ),
+  project(
+    name: "Swap",
+    projectLink: "github.com/maxhves/swapx-android",
+    features: (
+      "Developed a native Android app using Kotlin and Compose, adhering to Modern Android Development standards.",
+      "Integrated a real-time currency exchange API, ensuring accurate and up-to-date conversion exchanges for users.",
+      "Released as an open-source repository and on the Android App Store, gaining an increasing number of MAUs."
+    )
+  )
 )
 
-#project(
-  name: "Crime Connoisseur",
-  url: [
-    https://www.crimeconnoisseur.com
-  ],
-  description: [
-    - Created a full stack web application using NextJS, and Supabase with Typescript and SQL.
-    - Utilized TailwindCSS and TailwindUI to create an intuitive user interface.
-    - Utilized TanStack Query for state management.
-    - Developed a podcast client and platform, users can discover, listen to and review podcast episodes.
-  ]
-)
+//endregion
 
-#project(
-  name: "Swap",
-  url: [
-    https://github.com/maxhves/swapx-android\
-    https://github.com/maxhves/swap-ios
-  ],
-  description: [
-    - Created a native Android and native iOS mobile application with Kotlin and Swift.
-    - Utilized networking to sync with the latest exchange rate data via an API, subsequently storing the rates locally for quick, and offline conversions.
-    - Utilized Compose and SwiftUI for rapid user interface development.
-    - Deployed and released to the App Store and Play Store.
-    - Developed a currency exchange application, useful for understanding the exchange rate between two user-selected currencies.
-  ]
-)
+//region Education
 
-//endegion
+= Education
 
-//region Technical skills
-
-= Technical skills
-
-#technicalSkill(
-  domain: "Mobile Developement",
-  skills: [
-    - Languages: Kotlin, Java, Swift, Objective-C.
-    - Libraries: Compose, Room, Coroutines, Retrofit, Hilt, Glide, Material.
-    - Database: SQLite, Supabase, Firebase. 
-  ]
-)
-
-#technicalSkill(
-  domain: "Web Development",
-  skills: [
-    - Languages: JavaScript, Typescript.
-    - Frameworks: NextJS, TailwindCSS.
-    - Libraries: ReactJS, TanStack Query.
-    - Database: Supabase, Firebase, Postgres.
-  ]
-)
-
-#technicalSkill(
-  domain: "Interface Design",
-  skills: [
-    - Languages: LaTeX, Typst.
-    - Tools: Figma, Adobe Photoshop, Sketch.
-  ]
+#stack(
+  spacing: 10pt,
+  education(
+    label: "University of Plymouth", 
+    detail: "BSc(Hons) Computer Science",
+    completionDate: "May 2017"
+  ),
+  education(
+    label: "University of Staffordshire", 
+    detail: "BSc(Hons) Psychology",
+    completionDate: "May 2014"
+  )
 )
 
 //endregion

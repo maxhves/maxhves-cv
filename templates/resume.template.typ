@@ -1,27 +1,24 @@
 //region Constants
 
 // Language
-#let resume-language = "en"
+#let language = "en"
 
 // Font families
-#let family-primary = "Roboto Serif"
-#let family-seconday = "Playfair Display"
+#let family-primary = "Inter"
+#let family-secondary = "Source Serif Pro"
 
 // Colors
-#let stone-950 = rgb("#0c0a09")
-#let stone-800 = rgb("#292524")
-#let stone-700 = rgb("#44403c")
-#let stone-600 = rgb("#57534e")
-#let stone-500 = rgb("#78716c")
-#let stone-300 = rgb("#d6d3d1")
+#let zinc-800 = rgb("#27272A")
+#let zinc-700 = rgb("#3F3F46")
+#let zinc-600 = rgb("#52525B")
+#let zinc-300 = rgb("#D4D4D8")
 
-// Text size
-#let text-large = 18pt
-#let text-big = 12pt
+// Text Size
+#let text-extralarge = 20pt
+#let text-large = 12pt
 #let text-base = 10pt
-#let text-small = 8pt
 
-// Font weight
+// Font Weight
 #let font-semibold = 600
 #let font-medium = 500
 #let font-normal = 400
@@ -30,217 +27,101 @@
 
 //region Text
 
-#let authortext(body) = {
-  text(weight: font-medium, size: text-large, font: family-seconday, [#smallcaps(body)])
+#let nameText(body) = {
+  text(weight: font-semibold, fill: zinc-800, size: text-extralarge, font: family-secondary, [#body])
 }
 
-#let smalltext(body) = {
-  text(fill: stone-700, text-small, [#body])
+#let strongText(body) = {
+  text(weight: font-medium, fill: zinc-800, [#body])
 }
 
-#let sectionheading(body) = {
-  text(fill: stone-950, size: text-big, font: family-seconday, weight: font-semibold, [#body])
+#let lightText(body) = {
+  text(fill: zinc-600, [#body])
 }
 
-#let itemheading(body) = {
-  text(fill: stone-800, size: text-base, weight: font-medium, [#body])
-}
-
-#let itemsubheading(body) = {
-  text(fill: stone-500, size: text-small, [#body])
-}
-
-#let descriptiontext(body) = {
-  text(fill: stone-600, size: text-base, hyphenate: false, [#body])
+#let sectionHeading(body) = {
+  text(fill: zinc-800, size: text-large, font: family-secondary, weight: font-semibold, [#body])
 }
 
 //endregion
 
-//region Resume
+//region Document and Header
 
 #let resume(
-  email: "",
-  phoneNumber: "",
-  author: "",
+  name: "",
+  emailAddress: "",
   website: "",
+  linkedIn: "",
   github: "",
-  linkedin: "",
   body
 ) = {
+  // Metadata
+  set document(author: name, title: name)
 
-  // Document metadata
-  set document(author: author, title: author)
-
-  // Document settings
+  // Settings
   set text(
     font: family-primary,
     size: text-base,
     weight: font-normal,
-    fill: stone-950,
-    lang: resume-language
+    fill: zinc-700,
+    lang: language,
   )
 
-  // Page setup
+  // Boundaries
   set page(
-    margin: (
-      top: 32pt,
-      bottom: 32pt,
-      left: 32pt,
-      right: 32pt
-    ),
+    margin: 24pt
   )
-  
-  // Section heading
-  show heading: it => [
-    #pad(
-      top: 0pt, 
-      bottom: -8pt, 
-      sectionheading([#it.body])
-    )
-    #line(
-      start: (-8pt, 0pt), 
-      end: (540pt, 0pt), 
-      stroke: 1pt + stone-300
+
+  // Section Headings
+  show heading: it => block(above: 24pt, below: 12pt)[
+    #stack(
+      spacing: 10pt,
+      sectionHeading([#it]),
+      line(length: 100%, stroke: 0.5pt + zinc-300)
     )
   ]
 
-  // Personal details
-  grid(
-    columns: (1fr, 2fr, 1fr),
-    align: center,
-    // Email and phone number
-    align(left)[
-      #stack(
-        spacing: 8pt,
-        smalltext(
-          [#link("mailto:" + email)[#email]]
-        ),
-        smalltext(
-          [#link("tel:" + phoneNumber)[#phoneNumber]]
-        )
-      )
-    ],
-    // Name and website
+  // Header
+  stack(
+    spacing: 12pt,
     align(center)[
-      #stack(
-        spacing: 8pt,
-        authortext([#author]),
-        itemsubheading(
-          [#link("https://" + website)[#website]]
-        )
-      )
+      #nameText[#name]
     ],
-    // Github and linkedin
-    align(right)[
-      #stack(
-        spacing: 8pt,
-        smalltext(
-          [Github: #strong(
-            delta: 100, 
-            [#link("https://www.github.com/" + github)[#github]]
-          )]
-        ),
-        smalltext(
-          [Linkedin: #strong(
-            delta: 100, 
-            [#link("https://www.linkedin.com/in/" + linkedin)[#linkedin]]
-          )]
-        )
-      )
+    align(center)[
+      #link("mailto: " + emailAddress)[#emailAddress] | #link("https://" + website)[#website] | #link("https://" + linkedIn)[#linkedIn] | #link("https://" + github)[#github]
     ]
   )
-
-  // Vertical separation space
-  v(16pt)
-
-  // Main content
-  set par(justify: true)
 
   body
 }
 
 //endregion
 
-//region Employment
+//region Skills
 
-#let employment(
-  title: "",
-  companyName: "",
-  startDate: "",
-  endDate: "",
-  location: "",
-  description: (),
+#let skill(
+  label: "",
+  detail: ""
 ) = {
-  pad(
-    top: 4pt,
-    bottom: 4pt,
-    stack(
-      spacing: 16pt,
-      grid(
-        columns: (1fr, 1fr, 1fr),
-        align: center,
-        align(left)[
-          #itemheading([#title])
-        ],
-        align(center)[
-          #stack(
-            spacing: 8pt,
-            itemheading([#companyName]),
-            itemsubheading([#location])
-          )
-        ],
-        align(right)[
-          #itemheading([#startDate\-#endDate])
-        ]
-      ),
-      pad(
-        left: 4pt, 
-        par(
-          leading: 8pt, 
-          descriptiontext([#description])
-        )
-      )
-    )
-  )
+  text([#strongText([#label:]) #detail])
 }
 
 //endregion
 
-//region Education
+//region Experience
 
-#let education(
+#let experience(
+  role: "",
+  company: "",
   location: "",
-  institution: "",
   startDate: "",
   endDate: "",
-  degree: "",
+  accomplishments: ()
 ) = {
-  pad(
-    top: 4pt,
-    bottom: 4pt,
-    stack(
-      spacing: 16pt,
-      grid(
-        columns: (1fr, 1fr, 1fr),
-        align: center,
-        align(left)[
-          #itemheading([#location])
-        ],
-        align(center)[
-          #itemheading([#institution])
-        ],
-        align(right)[
-          #itemheading([#startDate\-#endDate])
-        ]
-      ),
-      pad(
-        left: 4pt,
-        par(
-          leading: 8pt,
-          descriptiontext([#degree])
-        )
-      )
-    )
+  stack(
+    spacing: 12pt,
+    [#strongText([#role,]) #company - #location #h(1fr) #startDate - #endDate],
+    lightText([#list(spacing: 10pt, ..accomplishments)])
   )
 }
 
@@ -250,51 +131,26 @@
 
 #let project(
   name: "",
-  url: [],
-  description: []
+  projectLink: "",
+  features: ()
 ) = {
-  pad(
-    top: 4pt,
-    bottom: 4pt,
-    stack(
-      spacing: 8pt,
-      itemheading([#name]),
-      itemsubheading([#emph(url)]),
-      pad(
-        top: 4pt,
-        left: 4pt,
-        par(
-          leading: 8pt,
-          descriptiontext([#description])
-        )
-      )
-    )
+  stack(
+    spacing: 12pt,
+    [#strongText([#name]) #h(1fr) #link("https://" + projectLink)[#projectLink]],
+    lightText([#list(spacing: 10pt, ..features)])
   )
 }
 
 //endregion
 
-//region Technical skills
+//region Education
 
-#let technicalSkill(
-  domain: "",
-  skills: []
+#let education(
+  label: "",
+  detail: "",
+  completionDate: ""
 ) = {
-  pad(
-    top: 4pt,
-    bottom: 4pt,
-    stack(
-      spacing: 16pt,
-      itemheading([#domain]),
-      pad(
-        left: 4pt,
-        par(
-          leading: 8pt,
-          descriptiontext([#skills])
-        )
-      )
-    )
-  )
+  text([#strongText([#label -]) #detail #h(1fr) #completionDate])
 }
 
 //endregion
