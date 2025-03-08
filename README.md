@@ -6,6 +6,6 @@ As a newcomer to Typst, I cannot guarantee that this template is a perfect examp
 
 ## Preview
 
-| Page 1 | Page 2 |
-| ------ | ------ |
-| ![maxhves resume page 1 preview](https://raw.githubusercontent.com/maxhves/maxhves-cv/main/output/maxhves_cv_preview_p1.png) | ![maxhves resume page 2 preview](https://raw.githubusercontent.com/maxhves/maxhves-cv/main/output/maxhves_cv_preview_p2.png) |
+| CV 2025 |
+| ------ |
+| ![maxhves resume page 1 preview](https://raw.githubusercontent.com/maxhves/maxhves-cv/main/output/maxhves_cv_preview.png) |
