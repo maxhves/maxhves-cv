@@ -39,7 +39,7 @@
   experience(
     role: "Full Stack Engineer",
     company: "Hvesser-Lewis Consulting",
-    location: "Oslo, Norway",
+    location: "London, United Kingdom",
     startDate: "Jan 2024",
     endDate: "Present",
     accomplishments: (
